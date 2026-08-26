@@ -17,6 +17,8 @@ import {
   RotateCcw,
   CheckCircle2,
   PenTool,
+  ExternalLink,
+  Code2,
 } from 'lucide-react';
 
 export default function SettingsPage() {
@@ -358,6 +360,34 @@ export default function SettingsPage() {
             <RotateCcw className="w-4 h-4" />
             <span>Reset Demo Data</span>
           </button>
+        </div>
+
+        {/* 6. System Architecture & Developer Credits */}
+        <div className="bg-[#082B52] rounded-2xl p-6 sm:p-8 text-white shadow-md border border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center p-2 border border-white/20 shrink-0">
+              <Code2 className="w-6 h-6 text-[#D5A11E]" />
+            </div>
+            <div>
+              <h3 className="font-bold text-sm sm:text-base text-white">
+                Software Engineering & System Architecture
+              </h3>
+              <p className="text-xs text-slate-300 mt-0.5">
+                Designed & Developed for Vacanyi Building Construction by{' '}
+                <strong className="text-[#F1D681]">Thabo Systems</strong>
+              </p>
+            </div>
+          </div>
+
+          <a
+            href="https://www.thabosystems.co.za/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-[#F1D681] hover:text-white border border-white/20 text-xs font-bold transition-all shrink-0"
+          >
+            <span>Visit Thabo Systems</span>
+            <ExternalLink className="w-3.5 h-3.5" />
+          </a>
         </div>
       </form>
     </PortalShell>

@@ -6,7 +6,7 @@ import { Topbar } from './topbar';
 import { MobileBottomNav } from './mobile-bottom-nav';
 import { MobileActionSheet } from './mobile-action-sheet';
 import { PWAInstallPrompt } from '@/components/pwa/pwa-install-prompt';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ExternalLink } from 'lucide-react';
 import Image from 'next/image';
 
 export function PortalShell({ children }: { children: React.ReactNode }) {
@@ -68,8 +68,27 @@ export function PortalShell({ children }: { children: React.ReactNode }) {
         <Topbar />
         
         {/* Main Content Container with bottom padding for mobile sticky nav */}
-        <main className="flex-1 p-4 sm:p-6 lg:p-8 max-w-7xl w-full mx-auto pb-28 lg:pb-8">
-          {children}
+        <main className="flex-1 p-4 sm:p-6 lg:p-8 max-w-7xl w-full mx-auto pb-28 lg:pb-8 flex flex-col justify-between">
+          <div className="flex-1">
+            {children}
+          </div>
+
+          {/* Global Portal Footer */}
+          <footer className="mt-12 pt-6 border-t border-slate-200/80 flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] text-slate-400 select-none">
+            <p>© {new Date().getFullYear()} Vacanyi Building Construction & Project. All rights reserved.</p>
+            <p>
+              Designed & Developed by{' '}
+              <a
+                href="https://www.thabosystems.co.za/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-bold text-[#082B52] hover:text-[#D5A11E] transition-colors inline-flex items-center gap-1 hover:underline"
+              >
+                <span>Thabo Systems</span>
+                <ExternalLink className="w-3 h-3 text-[#D5A11E]" />
+              </a>
+            </p>
+          </footer>
         </main>
       </div>
 

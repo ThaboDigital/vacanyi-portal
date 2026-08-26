@@ -141,6 +141,22 @@ export function Sidebar() {
           <span>vacanyi.co.za</span>
           <ExternalLink className="w-3 h-3" />
         </a>
+
+        {/* Developer Credit */}
+        <div className="pt-2 border-t border-white/10 text-center">
+          <p className="text-[10px] text-slate-400">
+            Designed & Developed by{' '}
+            <a
+              href="https://www.thabosystems.co.za/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-bold text-[#F1D681] hover:text-white transition-colors inline-flex items-center gap-1 hover:underline"
+            >
+              <span>Thabo Systems</span>
+              <ExternalLink className="w-2.5 h-2.5" />
+            </a>
+          </p>
+        </div>
       </div>
     </aside>
   );
