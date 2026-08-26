@@ -35,7 +35,6 @@ export function DocumentScannerModal({ isOpen, onClose }: DocumentScannerModalPr
 
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
-  const [apiKey, setApiKey] = useState<string>('');
   const [isScanning, setIsScanning] = useState<boolean>(false);
   const [scanStep, setScanStep] = useState<'upload' | 'review' | 'success'>('upload');
   const [error, setError] = useState<string | null>(null);
@@ -104,9 +103,6 @@ export function DocumentScannerModal({ isOpen, onClose }: DocumentScannerModalPr
     try {
       const formData = new FormData();
       formData.append('file', selectedFile);
-      if (apiKey) {
-        formData.append('apiKey', apiKey);
-      }
 
       const res = await fetch('/api/scan-document', {
         method: 'POST',
@@ -392,24 +388,6 @@ export function DocumentScannerModal({ isOpen, onClose }: DocumentScannerModalPr
                       <span>Ready to scan ({(selectedFile.size / 1024).toFixed(1)} KB)</span>
                     </span>
                   )}
-                </div>
-
-                {/* Optional Gemini API Key field */}
-                <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs space-y-2">
-                  <div className="flex items-center justify-between">
-                    <span className="font-bold text-slate-700 flex items-center gap-1.5">
-                      <Sparkles className="w-3.5 h-3.5 text-[#D5A11E]" />
-                      <span>Gemini Vision AI Engine</span>
-                    </span>
-                    <span className="text-[10px] text-slate-500">Optional (Uses heuristic engine if omitted)</span>
-                  </div>
-                  <input
-                    type="password"
-                    value={apiKey}
-                    onChange={(e) => setApiKey(e.target.value)}
-                    placeholder="Enter Gemini API Key (optional)"
-                    className="w-full p-2 bg-white border border-slate-300 rounded-lg text-xs font-mono"
-                  />
                 </div>
 
                 {/* Scan Trigger Button */}
