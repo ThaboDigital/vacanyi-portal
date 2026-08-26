@@ -60,38 +60,40 @@ export function PWAInstallPrompt() {
   if (isStandalone || !showPrompt) return null;
 
   return (
-    <div className="fixed bottom-20 left-4 right-4 z-40 lg:hidden animate-in fade-in slide-in-from-bottom-5 duration-300">
-      <div className="bg-[#082B52] text-white p-4 rounded-2xl shadow-2xl border border-white/20 flex items-center justify-between gap-3">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-white/10 p-1.5 flex items-center justify-center shrink-0 border border-white/20">
+    <div className="fixed top-[max(env(safe-area-inset-top),12px)] left-3 right-3 z-50 lg:hidden animate-in fade-in slide-in-from-top-4 duration-300">
+      <div className="bg-[#082B52] text-white p-3.5 rounded-2xl shadow-2xl border border-white/20 flex items-center justify-between gap-3">
+        <div className="flex items-center gap-3 min-w-0">
+          <div className="w-10 h-10 rounded-xl bg-white p-1 flex items-center justify-center shrink-0 shadow-sm ring-1 ring-white/40">
             <Image
               src="/brand/vacanyi-icon-180.png"
               alt="Vacanyi Portal"
-              width={36}
-              height={36}
+              width={32}
+              height={32}
               className="object-contain"
             />
           </div>
-          <div>
-            <h4 className="font-bold text-xs text-white flex items-center gap-1.5">
+          <div className="min-w-0">
+            <h4 className="font-bold text-xs text-white truncate">
               Install Vacanyi App
-              <span className="text-[10px] bg-[#D5A11E] text-[#082B52] px-1.5 py-0.2 rounded font-black">PWA</span>
             </h4>
-            <p className="text-[10px] text-slate-300">Fast 1-tap on-site contractor access</p>
+            <p className="text-[10px] text-slate-300 truncate">
+              Add to Home Screen for 1-tap site access
+            </p>
           </div>
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 shrink-0">
           <button
             onClick={handleInstallClick}
-            className="flex items-center gap-1 px-3 py-1.5 bg-[#D5A11E] hover:bg-[#B38615] text-[#082B52] font-black text-xs rounded-lg shadow-xs transition-transform active:scale-95"
+            className="flex items-center gap-1 px-3 py-1.5 bg-[#D5A11E] hover:bg-[#B38615] text-[#082B52] font-black text-xs rounded-xl shadow-xs transition-transform active:scale-95"
           >
             <Download className="w-3.5 h-3.5" />
             <span>Install</span>
           </button>
           <button
             onClick={() => setShowPrompt(false)}
-            className="p-1.5 text-slate-300 hover:text-white rounded-lg"
+            aria-label="Dismiss banner"
+            className="p-1.5 text-slate-300 hover:text-white rounded-lg hover:bg-white/10"
           >
             <X className="w-4 h-4" />
           </button>
