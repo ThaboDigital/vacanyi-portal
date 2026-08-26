@@ -12,8 +12,7 @@ import {
   Share2,
   ChevronRight,
   Plus,
-  Scan,
-  Sparkles,
+  ScanLine,
 } from 'lucide-react';
 
 interface MobileActionSheetProps {
@@ -27,11 +26,11 @@ export function MobileActionSheet({ isOpen, onClose }: MobileActionSheetProps) {
   const actions = [
     {
       href: '/scan',
-      title: 'Scan Document / Photo (AI)',
+      title: 'Scan & Upload Document',
       subtitle: 'Extract old quotes, BOQs & bills',
-      icon: Sparkles,
-      color: 'bg-[#D5A11E] text-[#082B52]',
-      badge: 'AI Vision',
+      icon: ScanLine,
+      color: 'bg-[#082B52] text-white',
+      badge: 'Scanner',
     },
     {
       href: '/quotes/new',

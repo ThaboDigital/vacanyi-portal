@@ -16,7 +16,7 @@ import {
   ExternalLink,
   ShieldCheck,
   Phone,
-  Scan,
+  ScanLine,
 } from 'lucide-react';
 import { isSupabaseConfigured } from '@/lib/supabase/client';
 
@@ -29,7 +29,7 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   { href: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
-  { href: '/scan', label: 'AI Doc Scanner', icon: Scan, badge: 'AI' },
+  { href: '/scan', label: 'Document Scanner', icon: ScanLine },
   { href: '/clients', label: 'Clients & CRM', icon: Users },
   { href: '/projects', label: 'Site Projects', icon: HardHat },
   { href: '/quotes', label: 'BOQ Quotations', icon: FileSpreadsheet },

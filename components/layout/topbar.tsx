@@ -13,7 +13,7 @@ import {
   HardHat,
   Share2,
   Bell,
-  Sparkles,
+  ScanLine,
 } from 'lucide-react';
 import { DataStore } from '@/lib/storage/data-store';
 
@@ -62,15 +62,15 @@ export function Topbar() {
               />
               <div className="absolute right-0 mt-2 w-56 bg-white rounded-xl shadow-xl border border-slate-200 py-2 z-50 animate-in fade-in zoom-in-95 duration-100">
                 <div className="px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-slate-400">
-                  AI Importer & Actions
+                  Document Scanner
                 </div>
                 <Link
                   href="/scan"
                   onClick={() => setIsQuickMenuOpen(false)}
-                  className="flex items-center gap-3 px-3 py-2 text-xs text-[#082B52] bg-[#D5A11E]/10 hover:bg-[#D5A11E]/20 font-bold rounded-lg mx-1 mb-1 transition-colors"
+                  className="flex items-center gap-3 px-3 py-2 text-xs text-[#082B52] bg-slate-100 hover:bg-slate-200/80 font-bold rounded-lg mx-1 mb-1 transition-colors"
                 >
-                  <Sparkles className="w-4 h-4 text-[#D5A11E]" />
-                  <span>Scan Document (AI)</span>
+                  <ScanLine className="w-4 h-4 text-[#082B52]" />
+                  <span>Scan & Upload Document</span>
                 </Link>
                 <div className="px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-slate-400">
                   Create Document

@@ -4,8 +4,7 @@ import React, { useState } from 'react';
 import { PortalShell } from '@/components/layout/portal-shell';
 import { DocumentScannerModal } from '@/components/documents/document-scanner-modal';
 import {
-  Sparkles,
-  Scan,
+  ScanLine,
   Upload,
   Camera,
   FileSpreadsheet,
@@ -26,28 +25,28 @@ export default function ScanPage() {
         <div className="bg-[#082B52] rounded-3xl p-6 sm:p-10 text-white shadow-xl relative overflow-hidden">
           <div className="relative z-10 max-w-2xl space-y-4">
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#D5A11E]/20 border border-[#D5A11E]/40 text-[#F1D681] rounded-full text-xs font-bold">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>AI Multimodal Document Extractor</span>
+              <ScanLine className="w-3.5 h-3.5" />
+              <span>Document Extraction Engine</span>
             </div>
             <h2 className="text-2xl sm:text-4xl font-black tracking-tight leading-tight">
               Scan Legacy Quotes, BOQs & Invoices into Vacanyi Portal
             </h2>
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-              Snap a photo with your mobile camera or upload old supplier PDFs. Our AI engine extracts line items, quantities, rates, and client details with 1-tap database synchronization.
+              Snap a photo with your mobile camera or upload supplier PDFs. The engine extracts line items, quantities, rates, and client details with 1-tap database synchronization.
             </p>
             <div className="pt-2">
               <button
                 onClick={() => setScannerOpen(true)}
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#D5A11E] hover:bg-[#B38615] text-[#082B52] text-xs sm:text-sm font-black shadow-lg transition-all active:scale-95"
               >
-                <Scan className="w-5 h-5 stroke-[2.5]" />
+                <ScanLine className="w-5 h-5 stroke-[2.5]" />
                 <span>Launch Document Scanner</span>
               </button>
             </div>
           </div>
 
           <div className="absolute right-4 bottom-4 opacity-10 pointer-events-none hidden md:block">
-            <Scan className="w-64 h-64 text-white" />
+            <ScanLine className="w-64 h-64 text-white" />
           </div>
         </div>
 

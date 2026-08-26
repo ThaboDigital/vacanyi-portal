@@ -19,7 +19,7 @@ import {
   Building,
   ArrowUpRight,
   AlertTriangle,
-  Sparkles,
+  ScanLine,
 } from 'lucide-react';
 import { formatZAR, formatDate } from '@/lib/utils/formatters';
 import { WhatsAppShareService } from '@/lib/share/whatsapp';
@@ -98,10 +98,10 @@ export default function InvoicesPage() {
           <div className="flex flex-wrap gap-2.5 shrink-0">
             <button
               onClick={() => setScannerOpen(true)}
-              className="flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-[#D5A11E]/15 hover:bg-[#D5A11E]/25 text-[#082B52] border border-[#D5A11E]/30 text-xs font-bold transition-all shadow-2xs"
+              className="flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-[#082B52] border border-slate-200 text-xs font-bold transition-all shadow-2xs"
             >
-              <Sparkles className="w-4 h-4 text-[#D5A11E]" />
-              <span>AI Scan / Import Invoice</span>
+              <ScanLine className="w-4 h-4 text-[#082B52]" />
+              <span>Scan & Import Invoice</span>
             </button>
 
             <Link

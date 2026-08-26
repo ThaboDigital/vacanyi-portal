@@ -3,7 +3,7 @@
 import React, { useState, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import {
-  Scan,
+  ScanLine,
   Upload,
   Camera,
   FileText,
@@ -13,7 +13,6 @@ import {
   X,
   Plus,
   Trash2,
-  Sparkles,
   ArrowRight,
   RefreshCw,
   Building,
@@ -324,15 +323,15 @@ export function DocumentScannerModal({ isOpen, onClose }: DocumentScannerModalPr
           {/* Header */}
           <div className="flex items-center justify-between border-b border-slate-200 bg-[#082B52] text-white px-6 py-4">
             <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-xl bg-[#D5A11E] text-[#082B52] flex items-center justify-center font-bold">
-                <Sparkles className="w-5 h-5" />
+              <div className="w-9 h-9 rounded-xl bg-white/10 text-white flex items-center justify-center font-bold border border-white/20">
+                <ScanLine className="w-5 h-5 text-[#D5A11E]" />
               </div>
               <div>
                 <h3 className="text-base font-bold text-white tracking-wide">
-                  AI Document Scanner & OCR Importer
+                  Document Scanner & Importer
                 </h3>
                 <p className="text-xs text-slate-300">
-                  Scan legacy quotes, bills & invoices into Vacanyi Portal
+                  Digitize legacy quotes, bills & invoices into Vacanyi Portal
                 </p>
               </div>
             </div>
@@ -408,12 +407,12 @@ export function DocumentScannerModal({ isOpen, onClose }: DocumentScannerModalPr
                     {isScanning ? (
                       <>
                         <Loader2 className="w-4 h-4 animate-spin text-[#D5A11E]" />
-                        <span>Analyzing Document with AI...</span>
+                        <span>Analyzing Document...</span>
                       </>
                     ) : (
                       <>
-                        <Scan className="w-4 h-4 text-[#D5A11E]" />
-                        <span>Run AI OCR Scanner</span>
+                        <ScanLine className="w-4 h-4 text-[#D5A11E]" />
+                        <span>Process & Extract Document</span>
                       </>
                     )}
                   </button>
@@ -424,11 +423,11 @@ export function DocumentScannerModal({ isOpen, onClose }: DocumentScannerModalPr
             {/* STEP 2: REVIEW & VERIFICATION */}
             {scanStep === 'review' && (
               <div className="space-y-6">
-                <div className="flex items-center justify-between bg-amber-50 border border-amber-200 p-3 rounded-xl text-xs text-amber-900">
+                <div className="flex items-center justify-between bg-emerald-50 border border-emerald-200 p-3 rounded-xl text-xs text-emerald-900">
                   <div className="flex items-center gap-2">
-                    <Sparkles className="w-4 h-4 text-[#D5A11E] shrink-0" />
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
                     <span>
-                      <strong>AI Extraction Complete:</strong> Review extracted client info, BOQ line items, and totals before syncing.
+                      <strong>Extraction Complete:</strong> Review extracted client info, BOQ line items, and totals before syncing.
                     </span>
                   </div>
                   <button
