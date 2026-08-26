@@ -7,6 +7,7 @@ import { DataStore } from '@/lib/storage/data-store';
 import { Quote, Client, QuoteStatus } from '@/lib/types';
 import { Badge } from '@/components/ui/badge';
 import { DocumentViewerModal } from '@/components/documents/document-viewer-modal';
+import { DocumentScannerModal } from '@/components/documents/document-scanner-modal';
 import {
   FileSpreadsheet,
   Plus,
@@ -17,6 +18,7 @@ import {
   ArrowUpRight,
   ReceiptText,
   HardHat,
+  Sparkles,
 } from 'lucide-react';
 import { formatZAR, formatDate } from '@/lib/utils/formatters';
 import { WhatsAppShareService } from '@/lib/share/whatsapp';
@@ -31,6 +33,7 @@ export default function QuotesPage() {
   // PDF Viewer Modal
   const [viewerOpen, setViewerOpen] = useState(false);
   const [selectedQuote, setSelectedQuote] = useState<Quote | null>(null);
+  const [scannerOpen, setScannerOpen] = useState(false);
 
   const refreshData = () => {
     setQuotes(DataStore.getQuotes());
@@ -78,13 +81,23 @@ export default function QuotesPage() {
             </p>
           </div>
 
-          <Link
-            href="/quotes/new"
-            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#082B52] hover:bg-[#103D70] text-white text-xs font-bold transition-all shadow-xs shrink-0"
-          >
-            <Plus className="w-4 h-4 text-[#D5A11E]" />
-            <span>Create BOQ Quotation</span>
-          </Link>
+          <div className="flex flex-wrap gap-2.5 shrink-0">
+            <button
+              onClick={() => setScannerOpen(true)}
+              className="flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-[#D5A11E]/15 hover:bg-[#D5A11E]/25 text-[#082B52] border border-[#D5A11E]/30 text-xs font-bold transition-all shadow-2xs"
+            >
+              <Sparkles className="w-4 h-4 text-[#D5A11E]" />
+              <span>AI Scan / Import Quote</span>
+            </button>
+
+            <Link
+              href="/quotes/new"
+              className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#082B52] hover:bg-[#103D70] text-white text-xs font-bold transition-all shadow-xs"
+            >
+              <Plus className="w-4 h-4 text-[#D5A11E]" />
+              <span>Create BOQ Quotation</span>
+            </Link>
+          </div>
         </div>
 
         {/* Filters */}
@@ -219,6 +232,15 @@ export default function QuotesPage() {
           settings={settings}
         />
       )}
+
+      {/* AI Document Scanner Modal */}
+      <DocumentScannerModal
+        isOpen={scannerOpen}
+        onClose={() => {
+          setScannerOpen(false);
+          refreshData();
+        }}
+      />
     </PortalShell>
   );
 }
