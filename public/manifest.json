@@ -1,0 +1,71 @@
+{
+  "name": "Vacanyi Building Contractor Management Portal",
+  "short_name": "Vacanyi Portal",
+  "description": "Professional Construction Management, BOQ Quotations, Tax Invoices, Milestone Receipts & 1-Tap WhatsApp Sharing",
+  "start_url": "/dashboard",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#082B52",
+  "theme_color": "#082B52",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/brand/favicon-32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/brand/vacanyi-icon-48.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "/brand/vacanyi-icon-180.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/brand/vacanyi-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/brand/vacanyi-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "New BOQ Quote",
+      "short_name": "New Quote",
+      "description": "Create a new contractor Bill of Quantities quotation",
+      "url": "/quotes/new",
+      "icons": [{ "src": "/brand/vacanyi-icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "New Tax Invoice",
+      "short_name": "New Invoice",
+      "description": "Issue a progress drawdown or tax invoice",
+      "url": "/invoices/new",
+      "icons": [{ "src": "/brand/vacanyi-icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Milestone Receipt",
+      "short_name": "Log Receipt",
+      "description": "Acknowledge client payment with a stamped receipt",
+      "url": "/receipts/new",
+      "icons": [{ "src": "/brand/vacanyi-icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Site Projects",
+      "short_name": "Projects",
+      "description": "View live construction site milestones",
+      "url": "/projects",
+      "icons": [{ "src": "/brand/vacanyi-icon-192.png", "sizes": "192x192" }]
+    }
+  ],
+  "categories": ["business", "productivity", "utilities"]
+}

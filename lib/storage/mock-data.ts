@@ -1,0 +1,258 @@
+import { 
+  Client, 
+  Project, 
+  ProjectMilestone, 
+  Quote, 
+  QuoteItem, 
+  Invoice, 
+  InvoiceItem, 
+  MilestoneReceipt, 
+  CompanySettings 
+} from '../types';
+
+export const initialCompanySettings: CompanySettings = {
+  id: 'default',
+  companyName: 'Vacanyi Building Construction & Project',
+  shortName: 'Vacanyi Building',
+  tagline: 'Precision Building, Structural Engineering & Turnkey Projects',
+  registrationNumber: '2023/894120/07',
+  taxNumber: '9821034821',
+  vatNumber: '4980291823',
+  nhbrcNumber: 'NHBRC-300029817',
+  phone: '063 343 7927',
+  whatsappPhone: '27633437927',
+  email: 'info@vacanyi.co.za',
+  website: 'https://vacanyi.co.za',
+  address: '14 Enterprise Way, Burgersdorp / Tzaneen, Limpopo, 0850',
+  bankName: 'First National Bank (FNB)',
+  accountName: 'Vacanyi Building Construction (Pty) Ltd',
+  accountNumber: '62123456789',
+  accountType: 'Business Cheque Account',
+  branchCode: '250655',
+  swiftCode: 'FIRNZAJJ',
+  vatPercentage: 15,
+  isVatRegistered: false,
+  defaultQuoteValidityDays: 30,
+  defaultInvoiceTermsDays: 7,
+  defaultQuoteTerms: `1. Quotation is valid for 30 calendar days from the date of issue.
+2. 50% deposit on acceptance; balance before final material release/delivery.
+3. Extra quantities/items must be approved in writing before supply.
+4. Delivery arrangements will be confirmed with the client before dispatch.
+5. All construction materials supplied conform to SABS South African standards.`,
+  defaultInvoiceTerms: `Payment is due within 7 calendar days of invoice presentation.
+Please use Quote/Invoice Reference (e.g. VB-2026-021) as your EFT payment reference.
+Proof of payment may be sent via WhatsApp to 063 343 7927.`,
+  updatedAt: new Date().toISOString(),
+};
+
+// Newly registered client: M E N Mashatole
+export const initialClients: Client[] = [
+  {
+    id: 'cli-mashatole-001',
+    name: 'M E N Mashatole',
+    companyName: '',
+    email: 'mashatola.client@example.co.za',
+    phone: '+27 73 368 2204',
+    whatsappPhone: '27733682204',
+    physicalAddress: 'Tickiline Village, Tzaneen, Limpopo, 0850',
+    idOrRegistrationNumber: '',
+    clientType: 'residential',
+    status: 'active',
+    notes: 'Mashatole Residential Building Project in Tickiline Village, Tzaneen. Project Ref: MASH-TZN-0826.',
+    createdAt: '2026-08-21T08:00:00Z',
+    updatedAt: '2026-08-21T08:00:00Z',
+  }
+];
+
+export const initialProjects: Project[] = [
+  {
+    id: 'proj-mashatole-001',
+    clientId: 'cli-mashatole-001',
+    title: 'Mashatole Residential Building Project',
+    projectCode: 'MASH-TZN-0826',
+    description: 'Supply of building materials and construction works for Mashatole residential project.',
+    siteAddress: 'Tickiline Village, Tzaneen, Limpopo, 0850',
+    projectType: 'residential',
+    status: 'in_progress',
+    contractValue: 53350,
+    startDate: '2026-08-21',
+    estimatedCompletionDate: '2026-09-04',
+    progressPercentage: 50,
+    siteForeman: 'M E N Mashatole (Site Contact)',
+    notes: 'Supply of cement, SABS brickforce, foundation plastic, rebar Y-bars, salt, tying wire, and REF 193 mesh.',
+    createdAt: '2026-08-21T08:00:00Z',
+    updatedAt: '2026-08-21T08:00:00Z',
+  }
+];
+
+export const initialMilestones: ProjectMilestone[] = [
+  {
+    id: 'ms-mash-001',
+    projectId: 'proj-mashatole-001',
+    orderIndex: 1,
+    title: '50% Initial Deposit & Material Procurement',
+    description: '50% deposit on acceptance; material sourcing and preparation.',
+    status: 'completed',
+    percentageOfContract: 50,
+    amount: 26675,
+    targetDate: '2026-08-21',
+    completedDate: '2026-08-21',
+    certifiedBy: 'M. Mashatole',
+    notes: 'Accepted electronically on 21 August 2026.',
+    createdAt: '2026-08-21T08:00:00Z',
+    updatedAt: '2026-08-21T08:00:00Z',
+  },
+  {
+    id: 'ms-mash-002',
+    projectId: 'proj-mashatole-001',
+    orderIndex: 2,
+    title: 'Final Material Release & Delivery to Tickiline Village',
+    description: 'Balance payment before final dispatch and on-site delivery.',
+    status: 'pending',
+    percentageOfContract: 50,
+    amount: 26675,
+    targetDate: '2026-09-04',
+    notes: 'Delivery arrangements to be confirmed prior to dispatch.',
+    createdAt: '2026-08-21T08:00:00Z',
+    updatedAt: '2026-08-21T08:00:00Z',
+  }
+];
+
+export const initialQuotes: Quote[] = [
+  {
+    id: 'quote-vb-2026-021',
+    clientId: 'cli-mashatole-001',
+    projectId: 'proj-mashatole-001',
+    quoteNumber: 'VB-2026-021',
+    title: 'Materials & Supply Schedule - Mashatole Residential Project',
+    siteAddress: 'Tickiline Village, Tzaneen, Limpopo, 0850',
+    issueDate: '2026-08-21',
+    expiryDate: '2026-09-04',
+    status: 'accepted',
+    subtotal: 53350,
+    discountAmount: 0,
+    vatPercentage: 0,
+    vatAmount: 0,
+    totalAmount: 53350,
+    scopeOfWork: 'Supply of listed building materials for the Mashatole residential project.\nAdditional items or quantity changes require written approval and may change the total.',
+    paymentScheduleTerms: '50% deposit on acceptance; balance before final material release/delivery.\nDelivery arrangements will be confirmed with the client before dispatch.',
+    specialNotes: 'Project Ref: MASH-TZN-0826. Site Contact: M E N Mashatole.\nSigned and accepted electronically by M. Mashatole on 21 August 2026.',
+    createdAt: '2026-08-21T08:00:00Z',
+    updatedAt: '2026-08-21T08:00:00Z',
+  }
+];
+
+export const initialQuoteItems: QuoteItem[] = [
+  {
+    id: 'qi-mash-01',
+    quoteId: 'quote-vb-2026-021',
+    orderIndex: 1,
+    category: 'Concrete & Foundation',
+    description: '42.5N Cement "Mamba"',
+    unit: 'Bag',
+    quantity: 240,
+    unitRate: 120.00,
+    totalAmount: 28800.00,
+    createdAt: '2026-08-21T08:00:00Z',
+  },
+  {
+    id: 'qi-mash-02',
+    quoteId: 'quote-vb-2026-021',
+    orderIndex: 2,
+    category: 'Masonry & Brickwork',
+    description: 'SABS Double Brickforce',
+    unit: 'Unit',
+    quantity: 20,
+    unitRate: 65.00,
+    totalAmount: 1300.00,
+    createdAt: '2026-08-21T08:00:00Z',
+  },
+  {
+    id: 'qi-mash-03',
+    quoteId: 'quote-vb-2026-021',
+    orderIndex: 3,
+    category: 'Concrete & Foundation',
+    description: 'SABS Foundation Plastic',
+    unit: 'Roll',
+    quantity: 6,
+    unitRate: 650.00,
+    totalAmount: 3900.00,
+    createdAt: '2026-08-21T08:00:00Z',
+  },
+  {
+    id: 'qi-mash-04',
+    quoteId: 'quote-vb-2026-021',
+    orderIndex: 4,
+    category: 'Earthworks & Excavation',
+    description: 'Stedfast',
+    unit: '1 Litre',
+    quantity: 1,
+    unitRate: 850.00,
+    totalAmount: 850.00,
+    createdAt: '2026-08-21T08:00:00Z',
+  },
+  {
+    id: 'qi-mash-05',
+    quoteId: 'quote-vb-2026-021',
+    orderIndex: 5,
+    category: 'Concrete & Foundation',
+    description: '50kg Salt',
+    unit: 'Bag',
+    quantity: 16,
+    unitRate: 145.00,
+    totalAmount: 2320.00,
+    createdAt: '2026-08-21T08:00:00Z',
+  },
+  {
+    id: 'qi-mash-06',
+    quoteId: 'quote-vb-2026-021',
+    orderIndex: 6,
+    category: 'Concrete & Foundation',
+    description: 'Y-Bar 12',
+    unit: 'Length',
+    quantity: 96,
+    unitRate: 85.00,
+    totalAmount: 8160.00,
+    createdAt: '2026-08-21T08:00:00Z',
+  },
+  {
+    id: 'qi-mash-07',
+    quoteId: 'quote-vb-2026-021',
+    orderIndex: 7,
+    category: 'Concrete & Foundation',
+    description: 'Y-Bar 8',
+    unit: 'Length',
+    quantity: 45,
+    unitRate: 66.00,
+    totalAmount: 2970.00,
+    createdAt: '2026-08-21T08:00:00Z',
+  },
+  {
+    id: 'qi-mash-08',
+    quoteId: 'quote-vb-2026-021',
+    orderIndex: 8,
+    category: 'Concrete & Foundation',
+    description: 'Tying Wire',
+    unit: 'kg',
+    quantity: 10,
+    unitRate: 40.00,
+    totalAmount: 400.00,
+    createdAt: '2026-08-21T08:00:00Z',
+  },
+  {
+    id: 'qi-mash-09',
+    quoteId: 'quote-vb-2026-021',
+    orderIndex: 9,
+    category: 'Concrete & Foundation',
+    description: 'REF 193',
+    unit: 'Sheet',
+    quantity: 10,
+    unitRate: 465.00,
+    totalAmount: 4650.00,
+    createdAt: '2026-08-21T08:00:00Z',
+  },
+];
+
+export const initialInvoices: Invoice[] = [];
+export const initialInvoiceItems: InvoiceItem[] = [];
+export const initialReceipts: MilestoneReceipt[] = [];
