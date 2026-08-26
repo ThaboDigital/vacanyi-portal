@@ -6,7 +6,8 @@ import { Topbar } from './topbar';
 import { MobileBottomNav } from './mobile-bottom-nav';
 import { MobileActionSheet } from './mobile-action-sheet';
 import { PWAInstallPrompt } from '@/components/pwa/pwa-install-prompt';
-import { Menu, X, ExternalLink } from 'lucide-react';
+import { Menu, X, ExternalLink, Camera } from 'lucide-react';
+import Link from 'next/link';
 import Image from 'next/image';
 
 export function PortalShell({ children }: { children: React.ReactNode }) {
@@ -47,6 +48,7 @@ export function PortalShell({ children }: { children: React.ReactNode }) {
           >
             {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
+          
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-lg bg-white flex items-center justify-center p-1 shadow-xs ring-1 ring-white/30 shrink-0">
               <Image
@@ -62,7 +64,15 @@ export function PortalShell({ children }: { children: React.ReactNode }) {
               VACANYI <span className="text-[#D5A11E] font-extrabold">PORTAL</span>
             </span>
           </div>
-          <div className="w-8" />
+
+          <Link
+            href="/scan"
+            className="w-8 h-8 rounded-lg bg-[#D5A11E] hover:bg-[#B38615] text-[#082B52] flex items-center justify-center shadow-xs transition-transform active:scale-90"
+            title="Scan Document (AI)"
+            aria-label="Scan Document with Camera"
+          >
+            <Camera className="w-4 h-4 stroke-[2.5]" />
+          </Link>
         </div>
 
         <Topbar />

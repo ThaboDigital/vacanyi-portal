@@ -20,6 +20,7 @@ import {
   CheckCircle2,
   AlertTriangle,
   Building,
+  Sparkles,
 } from 'lucide-react';
 import { formatZAR, formatDate } from '@/lib/utils/formatters';
 import { DocumentViewerModal } from '@/components/documents/document-viewer-modal';
@@ -106,6 +107,13 @@ export default function DashboardPage() {
           </div>
 
           <div className="relative z-10 flex flex-wrap gap-2.5">
+            <Link
+              href="/scan"
+              className="flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-white text-[#082B52] hover:bg-slate-100 text-xs font-bold transition-all shadow-sm"
+            >
+              <Sparkles className="w-4 h-4 text-[#D5A11E]" />
+              <span>Scan Doc (AI)</span>
+            </Link>
             <Link
               href="/quotes/new"
               className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#D5A11E] hover:bg-[#B38615] text-[#082B52] text-xs font-bold transition-all shadow-sm"
