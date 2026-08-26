@@ -3,7 +3,7 @@ import './globals.css';
 import { PWARegister } from '@/components/pwa/pwa-register';
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'https://portal.vacanyi.co.za'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'https://vacanyiportal.thabosystems.co.za'),
   title: {
     default: 'Vacanyi Building | Contractor Management & Project Portal',
     template: '%s | Vacanyi Portal',
@@ -16,16 +16,26 @@ export const metadata: Metadata = {
     title: 'Vacanyi Building | Contractor Management & Project Portal',
     description:
       'Precision Building Construction & Project Management. Official BOQ Quotations, Tax Invoices, Milestone Receipts, and Client Site Accounts.',
-    url: 'https://portal.vacanyi.co.za',
+    url: 'https://vacanyiportal.thabosystems.co.za',
     siteName: 'Vacanyi Building Construction & Project',
     locale: 'en_ZA',
     type: 'website',
+    images: [
+      {
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Vacanyi Building Construction & Project Portal',
+        type: 'image/jpeg',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Vacanyi Building | Contractor Management & Project Portal',
     description:
       'Precision Building Construction & Project Management. Official BOQ Quotations, Tax Invoices, Milestone Receipts, and Client Site Accounts.',
+    images: ['/og-image.jpg'],
   },
   appleWebApp: {
     capable: true,
@@ -59,9 +69,38 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const appUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://vacanyiportal.thabosystems.co.za';
+
   return (
     <html lang="en-ZA">
       <head>
+        {/* Core OpenGraph Meta Tags for WhatsApp & Social Unfurling */}
+        <meta property="og:title" content="Vacanyi Building | Contractor Management & Project Portal" />
+        <meta
+          property="og:description"
+          content="Precision Building Construction & Project Management. Official BOQ Quotations, Tax Invoices, Milestone Receipts & Client Site Accounts."
+        />
+        <meta property="og:image" content={`${appUrl}/og-image.jpg`} />
+        <meta property="og:image:secure_url" content={`${appUrl}/og-image.jpg`} />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Vacanyi Building Construction & Project Portal" />
+        <meta property="og:url" content={`${appUrl}/`} />
+        <meta property="og:site_name" content="Vacanyi Building Construction & Project" />
+        <meta property="og:type" content="website" />
+        
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Vacanyi Building | Contractor Management & Project Portal" />
+        <meta
+          name="twitter:description"
+          content="Precision Building Construction & Project Management. Official BOQ Quotations, Tax Invoices, Milestone Receipts & Client Site Accounts."
+        />
+        <meta name="twitter:image" content={`${appUrl}/og-image.jpg`} />
+        <link rel="image_src" href={`${appUrl}/og-image.jpg`} />
+
+        {/* PWA & Mobile Web Tags */}
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
